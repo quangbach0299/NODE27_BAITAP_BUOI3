@@ -1,0 +1,26 @@
+{
+  "name": "buoi3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "repository": "git+https://github.com/quangbach0299/NODE27_BAITAP_BUOI3.git",
+  "author": "quangbach0299 <mrbachloveyou@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/quangbach0299/NODE27_BAITAP_BUOI3/issues"
+  },
+  "homepage": "https://github.com/quangbach0299/NODE27_BAITAP_BUOI3#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mysql2": "^3.1.2",
+    "nodemon": "^2.0.20",
+    "sequelize": "^6.28.0",
+    "sequelize-auto": "^0.8.8",
+    "sequelize-cli": "^6.6.0",
+    "yarn": "^1.22.19"
+  }
+}
