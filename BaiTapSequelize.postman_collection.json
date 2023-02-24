@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "70458f37-090d-4b31-be54-90a7d6ba77fe",
+		"name": "BaiTapSequelize",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23671311"
+	},
+	"item": [
+		{
+			"name": "likeRes",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"user_id\": 2,\r\n\"res_id\": 1,\r\n\"date_like\": \"2008-11-09 15:45:21\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/like/likeStatusRes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"like",
+						"likeStatusRes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "likeResList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/like/likeResList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"like",
+						"likeResList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addRate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\":1,\r\n    \"res_id\":1,\r\n    \"amount\":5,\r\n    \"date_rate\":\"2022-01-01 09:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/rate/addRate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"rate",
+						"addRate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resRateList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/rate/resRateList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"rate",
+						"resRateList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "orderFood",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"user_id\":1,\r\n\"food_id\":2,\r\n\"amount\": 5,\r\n\"code\":\"5\",\r\n\"arr_sub_id\":\"[1,3,3]\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/food/orderFood",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"food",
+						"orderFood"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "domain",
+			"value": "http://localhost:8080/api",
+			"type": "string"
+		}
+	]
+}
