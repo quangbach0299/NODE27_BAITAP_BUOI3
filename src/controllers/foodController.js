@@ -7,11 +7,19 @@ const orderFood = async (req, res) => {
     const { user_id, food_id, amount, code, arr_sub_id } = req.body;
 
     // Validate request parameters
-    if (!user_id || !food_id) {
-      return res.status(400).send("Invalid request parameters");
+    let checkingUser = await model.user.findOne({
+      where: {
+        user_id: user_id,
+      },
+    });
+
+    if (!checkingUser) {
+      return res.status(400).send("UserId không hợp lệ");
     }
 
-    const dataFind = await model.order.findOne({ where: { user_id, food_id } });
+    const dataFind = await model.order.findOne({
+      where: { user_id, food_id },
+    });
 
     if (dataFind) {
       // Update `amount` to 5 only if data already exists in DB
@@ -19,7 +27,13 @@ const orderFood = async (req, res) => {
       res.send("Order updated successfully");
     } else {
       // Create a new order
-      await model.order.create({ user_id, food_id, amount, code, arr_sub_id });
+      await model.order.create({
+        user_id,
+        food_id,
+        amount,
+        code,
+        arr_sub_id,
+      });
       res.send("Order created successfully");
     }
   } catch (error) {
