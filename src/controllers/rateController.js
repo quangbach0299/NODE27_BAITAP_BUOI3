@@ -33,13 +33,15 @@ const addRate = async (req, res) => {
 
 // Lấy danh sách đánh giá theo nhà hàng
 
-const resRate = async (req, res) => {
+const resRateList = async (req, res) => {
   try {
-    let data = await model.rate_res.findAll({
-      include: ["re"],
+    let data = await model.restaurant.findAll({
+      include: ["user_id_user_rate_res"],
     });
     res.send(data);
-  } catch (error) {}
+  } catch (error) {
+    res.send("lỗi backend");
+  }
 };
 
-module.exports = { addRate, resRate };
+module.exports = { addRate, resRateList };

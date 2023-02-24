@@ -30,17 +30,9 @@ const likeStatusRes = async (req, res) => {
 
 const likeResList = async (req, res) => {
   try {
-    let data = await model.like_res.findAll({
-      attributes: ["user_id", "res_id", "date_like"],
-      include: [
-        {
-          model: model.restaurant,
-          attributes: ["res_name", "image", "desc"],
-          as: "re",
-        },
-      ],
+    let data = await model.restaurant.findAll({
+      include: ["user_id_users"],
     });
-
     res.send(data);
   } catch (error) {
     res.send("Lỗi Backend");

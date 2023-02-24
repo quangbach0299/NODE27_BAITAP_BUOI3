@@ -13,4 +13,8 @@ rootRoute.use("/like", likeRoute);
 const rateRoute = require("./rateRoute");
 rootRoute.use("/rate", rateRoute);
 
+// food
+const foodRoute = require("./foodRoute");
+rootRoute.use("/food", foodRoute);
+
 module.exports = rootRoute;
