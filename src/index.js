@@ -17,6 +17,7 @@ app.use(cors());
 app.listen(8080);
 
 const rootRoute = require("./routes/rootRoute");
+
 app.use("/api", rootRoute);
 
 console.log("node 32");

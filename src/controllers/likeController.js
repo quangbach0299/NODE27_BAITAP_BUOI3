@@ -1,4 +1,3 @@
-const { log } = require("console");
 const sequelize = require("../models/index");
 const initModels = require("../models/init-models");
 
@@ -27,22 +26,27 @@ const likeStatusRes = async (req, res) => {
   }
 };
 
-// Lấy danh sách Like theo nhà hàng
-// SELECT  res_id, COUNT(user_id) FROM like_res GROUP BY res_id;
-const likeList = async (req, res) => {
+// Lấy danh sách Like theo nhà hàng và người dùng
+
+const likeResList = async (req, res) => {
   try {
     let data = await model.like_res.findAll({
-      attributes: [
-        "res_id",
-        [sequelize.fn("COUNT", sequelize.col("user_id")), "totalLike"],
+      attributes: ["user_id", "res_id", "date_like"],
+      include: [
+        {
+          model: model.restaurant,
+          attributes: ["res_name", "image", "desc"],
+          as: "re",
+        },
       ],
-      group: ["res_id"],
     });
 
     res.send(data);
   } catch (error) {
-    console.log(error);
+    res.send("Lỗi Backend");
   }
 };
 
-module.exports = { likeStatusRes, likeList };
+module.exports = { likeStatusRes, likeResList };
+
+// Lấy danh sách like theo người dùng
